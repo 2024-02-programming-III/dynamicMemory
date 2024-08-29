@@ -1,185 +1,176 @@
 package co.edu.uptc.models.dynamic;
 
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.List;
-import java.util.ListIterator;
+import java.util.*;
 
-public class SimpleList <T> implements List {
-    Node header;
-
-    // TODO:  falta addionar mas de un elemento y que lo adiciona a la lista
-    public void addv1(int value){
-       Node node = new Node();
-       node.setInfo(value);
-       node.setNext(null);
-       header = node;
-    }
-
-    // TODO: falta refactorizar
-    public void add(int value){
-        Node newNode = new Node();
-        newNode.setInfo(value);
-        newNode.setNext(null);
-        if (header== null) {
-            header = newNode;
-        } else {
-            Node last = header;
-            while (last.getNext() !=null) {
-                     last = last.getNext();
-            }
-            last.setNext(newNode);
-        }
-
-
-
-        
-     }
-
-    public void showList(){
-      Node aux = header;
-      while (aux!=null) {
-        System.out.println(aux.getInfo());
-        aux = aux.getNext();
-      }
-
-    }
+public class SimpleList<T> implements List<T> {
+    Node<T> header;
+    Node<T> tail;
 
     @Override
     public int size() {
-      // TODO Auto-generated method stub
-      throw new UnsupportedOperationException("Unimplemented method 'size'");
+        int i = 0;
+        Node<T> aux = header;
+        while(aux != null){
+            i++;
+            aux = aux.getNext();
+        }
+        return i;
     }
 
     @Override
     public boolean isEmpty() {
-      // TODO Auto-generated method stub
-      throw new UnsupportedOperationException("Unimplemented method 'isEmpty'");
+        return header == null;
     }
 
     @Override
     public boolean contains(Object o) {
-      // TODO Auto-generated method stub
-      throw new UnsupportedOperationException("Unimplemented method 'contains'");
+        return false;
     }
 
     @Override
-    public Iterator iterator() {
-      // TODO Auto-generated method stub
-      throw new UnsupportedOperationException("Unimplemented method 'iterator'");
+    public Iterator<T> iterator() {
+        return new SimpleListIterator();
     }
 
     @Override
     public Object[] toArray() {
-      // TODO Auto-generated method stub
-      throw new UnsupportedOperationException("Unimplemented method 'toArray'");
+        Object[] array = new Object[size()];
+        Node<T> aux = header;
+        int i = 0;
+        while(aux != null){
+            array[i++] = aux.getInfo();
+            aux = aux.getNext();
+        }
+        return array;
     }
 
     @Override
-    public Object[] toArray(Object[] a) {
-      // TODO Auto-generated method stub
-      throw new UnsupportedOperationException("Unimplemented method 'toArray'");
-    }
-
-    @Override
-    public boolean add(Object e) {
-      // TODO Auto-generated method stub
-      throw new UnsupportedOperationException("Unimplemented method 'add'");
+    public boolean add(T o) {
+        Node<T> newNode = new Node<>();
+        newNode.setInfo(o);
+        if (header == null) {
+            header = newNode;
+        } else {
+            tail.setNext(newNode);
+        }
+        tail = newNode;
+        return true;
     }
 
     @Override
     public boolean remove(Object o) {
-      // TODO Auto-generated method stub
-      throw new UnsupportedOperationException("Unimplemented method 'remove'");
+        return false;
     }
 
     @Override
-    public boolean containsAll(Collection c) {
-      // TODO Auto-generated method stub
-      throw new UnsupportedOperationException("Unimplemented method 'containsAll'");
+    public boolean addAll(Collection<? extends T> c) {
+        return false;
     }
 
     @Override
-    public boolean addAll(Collection c) {
-      // TODO Auto-generated method stub
-      throw new UnsupportedOperationException("Unimplemented method 'addAll'");
-    }
-
-    @Override
-    public boolean addAll(int index, Collection c) {
-      // TODO Auto-generated method stub
-      throw new UnsupportedOperationException("Unimplemented method 'addAll'");
-    }
-
-    @Override
-    public boolean removeAll(Collection c) {
-      // TODO Auto-generated method stub
-      throw new UnsupportedOperationException("Unimplemented method 'removeAll'");
-    }
-
-    @Override
-    public boolean retainAll(Collection c) {
-      // TODO Auto-generated method stub
-      throw new UnsupportedOperationException("Unimplemented method 'retainAll'");
+    public boolean addAll(int index, Collection<? extends T> c) {
+        return false;
     }
 
     @Override
     public void clear() {
-      // TODO Auto-generated method stub
-      throw new UnsupportedOperationException("Unimplemented method 'clear'");
+
     }
 
     @Override
-    public Object get(int index) {
-      // TODO Auto-generated method stub
-      throw new UnsupportedOperationException("Unimplemented method 'get'");
+    public T get(int index) {
+        Node<T> aux = header;
+        for (int i = 0; i < index; i++) {
+            aux = aux.getNext();
+        }
+        return aux.getInfo();
     }
 
     @Override
-    public Object set(int index, Object element) {
-      // TODO Auto-generated method stub
-      throw new UnsupportedOperationException("Unimplemented method 'set'");
+    public T set(int index, T element) {
+        return null;
     }
 
     @Override
-    public void add(int index, Object element) {
-      // TODO Auto-generated method stub
-      throw new UnsupportedOperationException("Unimplemented method 'add'");
+    public void add(int index, T element) {
+
     }
 
     @Override
-    public Object remove(int index) {
-      // TODO Auto-generated method stub
-      throw new UnsupportedOperationException("Unimplemented method 'remove'");
+    public T remove(int index) {
+        return null;
     }
 
     @Override
     public int indexOf(Object o) {
-      // TODO Auto-generated method stub
-      throw new UnsupportedOperationException("Unimplemented method 'indexOf'");
+        return 0;
     }
 
     @Override
     public int lastIndexOf(Object o) {
-      // TODO Auto-generated method stub
-      throw new UnsupportedOperationException("Unimplemented method 'lastIndexOf'");
+        return 0;
     }
 
     @Override
-    public ListIterator listIterator() {
-      // TODO Auto-generated method stub
-      throw new UnsupportedOperationException("Unimplemented method 'listIterator'");
+    public ListIterator<T> listIterator() {
+        return null;
     }
 
     @Override
-    public ListIterator listIterator(int index) {
-      // TODO Auto-generated method stub
-      throw new UnsupportedOperationException("Unimplemented method 'listIterator'");
+    public ListIterator<T> listIterator(int index) {
+        return null;
     }
 
     @Override
-    public List subList(int fromIndex, int toIndex) {
-      // TODO Auto-generated method stub
-      throw new UnsupportedOperationException("Unimplemented method 'subList'");
+    public List<T> subList(int fromIndex, int toIndex) {
+        return List.of();
+    }
+
+    @Override
+    public boolean retainAll(Collection<?> c) {
+        return false;
+    }
+
+    @Override
+    public boolean removeAll(Collection<?> c) {
+        return false;
+    }
+
+    @Override
+    public boolean containsAll(Collection<?> c) {
+        return false;
+    }
+
+    @Override
+    public <T1> T1[] toArray(T1[] a) {
+        return null;
+    }
+
+    public int sum(){
+        int sum = 0;
+        Node<T> aux = header;
+        while(aux != null){
+            sum += (int) aux.getInfo();
+            aux = aux.getNext();
+        }
+        return sum;
+    }
+    private class SimpleListIterator implements Iterator<T> {
+        private Node<T> current = header;
+
+        @Override
+        public boolean hasNext() {
+            return current != null;
+        }
+
+        @Override
+        public T next() {
+            if (!hasNext()) {
+                throw new NoSuchElementException();
+            }
+            T data = current.getInfo();
+            current = current.getNext();
+            return data;
+        }
     }
 }
