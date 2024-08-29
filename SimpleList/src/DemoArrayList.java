@@ -4,18 +4,19 @@ import java.util.List;
 public class DemoArrayList {
 
     private List<Integer> list;
- public  void testArrayList() {
-    loadDataArrayList();
-    sumDataArrayList();
-  };
-
-  public  void loadDataArrayList() {
     
-   list = new ArrayList<Integer>();
-    for (int i = 0; i < 100000; i++) {
-      list.add(i);
+    public  void testArrayList(int[] randoms) {
+      loadDataArrayList(randoms);
+      sumDataArrayList();
+    };
+  
+    public  void loadDataArrayList(int[] randoms) {
+      
+    list = new ArrayList<Integer>();
+      for (int i = 0; i < 100000; i++) {
+        list.add(randoms[i]);
+      }
     }
-  }
 
   public  void sumDataArrayList() {
     int result = 0;

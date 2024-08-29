@@ -7,18 +7,19 @@ import co.edu.uptc.models.dynamic.SimpleListV2;
 public class DemoSimpleList {
 
     private List<Integer> list;
- public  void testArrayList() {
-    loadDataArrayList();
-    sumDataArrayList();
-  };
 
-  public  void loadDataArrayList() {
-    
-   list = new SimpleListV2<Integer>();
-    for (int i = 0; i < 100000; i++) {
-      list.add(i);
+    public  void testArrayList(int[] randoms) {
+      loadDataArrayList(randoms);
+      sumDataArrayList();
+    };
+  
+    public  void loadDataArrayList(int[] randoms) {
+      
+    list = new SimpleListV2<Integer>();
+      for (int i = 0; i < 100000; i++) {
+        list.add(randoms[i]);
+      }
     }
-  }
 
   public  void sumDataArrayList() {
     System.out.println("");
