@@ -191,7 +191,7 @@ public class SimpleListV2 <T> implements List<T> {
     }
 
     @Override
-    public Object remove(int index) {
+    public T remove(int index) {
       // TODO Auto-generated method stub
       throw new UnsupportedOperationException("Unimplemented method 'remove'");
     }
