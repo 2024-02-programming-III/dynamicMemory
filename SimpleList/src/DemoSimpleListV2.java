@@ -1,7 +1,7 @@
-import java.util.ArrayList;
 import java.util.List;
+import co.edu.uptc.models.dynamic.SimpleListV2;
 
-public class DemoArrayList {
+public class DemoSimpleListV2 {
 
   private List<Integer> list;
 
@@ -11,16 +11,16 @@ public class DemoArrayList {
   }
 
   public void loadDataArrayList(List<Integer> randomNumbers) {
-    list = new ArrayList<>();
+    list = new SimpleListV2<>();
     for (int i = 0; i < randomNumbers.size(); i++) {
       list.add(randomNumbers.get(i));
     }
   }
 
   public void sumDataArrayList() {
-    int result = 0;
     System.out.println("");
-    System.out.println("----------ArrayList----------");
+    System.out.println("----------SimpleList----------");
+    int result = 0;
     long startTime = System.nanoTime();
     for (int i = 0; i < list.size(); i++) {
       result = result + list.get(i);

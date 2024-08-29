@@ -5,181 +5,179 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
 
-public class SimpleList <T> implements List {
-    Node header;
+@SuppressWarnings({ "rawtypes", "unchecked" })
+public class SimpleList<T> implements List<T> {
+  Node<T> header;
 
-    // TODO:  falta addionar mas de un elemento y que lo adiciona a la lista
-    public void addv1(int value){
-       Node node = new Node();
-       node.setInfo(value);
-       node.setNext(null);
-       header = node;
-    }
+  // TODO: falta addionar mas de un elemento y que lo adiciona a la lista
+  public void addv2(T value) {
+    Node<T> node = new Node<T>();
+    node.setInfo(value);
+    node.setNext(null);
+    header = node;
+  }
 
-    // TODO: falta refactorizar
-    public void add(int value){
-        Node newNode = new Node();
-        newNode.setInfo(value);
-        newNode.setNext(null);
-        if (header== null) {
-            header = newNode;
-        } else {
-            Node last = header;
-            while (last.getNext() !=null) {
-                     last = last.getNext();
-            }
-            last.setNext(newNode);
-        }
-
-
-
-        
-     }
-
-    public void showList(){
-      Node aux = header;
-      while (aux!=null) {
-        System.out.println(aux.getInfo());
-        aux = aux.getNext();
+  // TODO: falta refactorizar
+  public void addv1(T value) {
+    Node<T> newNode = new Node<T>();
+    newNode.setInfo(value);
+    newNode.setNext(null);
+    if (header == null) {
+      header = newNode;
+    } else {
+      Node<T> last = header;
+      while (last.getNext() != null) {
+        last = last.getNext();
       }
-
+      last.setNext(newNode);
     }
 
-    @Override
-    public int size() {
-      // TODO Auto-generated method stub
-      throw new UnsupportedOperationException("Unimplemented method 'size'");
+  }
+
+  public void showList() {
+    Node<T> aux = header;
+    while (aux != null) {
+      System.out.println(aux.getInfo());
+      aux = aux.getNext();
     }
 
-    @Override
-    public boolean isEmpty() {
-      // TODO Auto-generated method stub
-      throw new UnsupportedOperationException("Unimplemented method 'isEmpty'");
-    }
+  }
 
-    @Override
-    public boolean contains(Object o) {
-      // TODO Auto-generated method stub
-      throw new UnsupportedOperationException("Unimplemented method 'contains'");
-    }
+  @Override
+  public int size() {
+    // TODO Auto-generated method stub
+    throw new UnsupportedOperationException("Unimplemented method 'size'");
+  }
 
-    @Override
-    public Iterator iterator() {
-      // TODO Auto-generated method stub
-      throw new UnsupportedOperationException("Unimplemented method 'iterator'");
-    }
+  @Override
+  public boolean isEmpty() {
+    // TODO Auto-generated method stub
+    throw new UnsupportedOperationException("Unimplemented method 'isEmpty'");
+  }
 
-    @Override
-    public Object[] toArray() {
-      // TODO Auto-generated method stub
-      throw new UnsupportedOperationException("Unimplemented method 'toArray'");
-    }
+  @Override
+  public boolean contains(Object o) {
+    // TODO Auto-generated method stub
+    throw new UnsupportedOperationException("Unimplemented method 'contains'");
+  }
 
-    @Override
-    public Object[] toArray(Object[] a) {
-      // TODO Auto-generated method stub
-      throw new UnsupportedOperationException("Unimplemented method 'toArray'");
-    }
+  @Override
+  public Iterator iterator() {
+    // TODO Auto-generated method stub
+    throw new UnsupportedOperationException("Unimplemented method 'iterator'");
+  }
 
-    @Override
-    public boolean add(Object e) {
-      // TODO Auto-generated method stub
-      throw new UnsupportedOperationException("Unimplemented method 'add'");
-    }
+  @Override
+  public Object[] toArray() {
+    // TODO Auto-generated method stub
+    throw new UnsupportedOperationException("Unimplemented method 'toArray'");
+  }
 
-    @Override
-    public boolean remove(Object o) {
-      // TODO Auto-generated method stub
-      throw new UnsupportedOperationException("Unimplemented method 'remove'");
-    }
+  @Override
+  public Object[] toArray(Object[] a) {
+    // TODO Auto-generated method stub
+    throw new UnsupportedOperationException("Unimplemented method 'toArray'");
+  }
 
-    @Override
-    public boolean containsAll(Collection c) {
-      // TODO Auto-generated method stub
-      throw new UnsupportedOperationException("Unimplemented method 'containsAll'");
-    }
+  @Override
+  public boolean add(Object e) {
+    // TODO Auto-generated method stub
+    throw new UnsupportedOperationException("Unimplemented method 'add'");
+  }
 
-    @Override
-    public boolean addAll(Collection c) {
-      // TODO Auto-generated method stub
-      throw new UnsupportedOperationException("Unimplemented method 'addAll'");
-    }
+  @Override
+  public boolean remove(Object o) {
+    // TODO Auto-generated method stub
+    throw new UnsupportedOperationException("Unimplemented method 'remove'");
+  }
 
-    @Override
-    public boolean addAll(int index, Collection c) {
-      // TODO Auto-generated method stub
-      throw new UnsupportedOperationException("Unimplemented method 'addAll'");
-    }
+  @Override
+  public boolean containsAll(Collection c) {
+    // TODO Auto-generated method stub
+    throw new UnsupportedOperationException("Unimplemented method 'containsAll'");
+  }
 
-    @Override
-    public boolean removeAll(Collection c) {
-      // TODO Auto-generated method stub
-      throw new UnsupportedOperationException("Unimplemented method 'removeAll'");
-    }
+  @Override
+  public boolean addAll(Collection c) {
+    // TODO Auto-generated method stub
+    throw new UnsupportedOperationException("Unimplemented method 'addAll'");
+  }
 
-    @Override
-    public boolean retainAll(Collection c) {
-      // TODO Auto-generated method stub
-      throw new UnsupportedOperationException("Unimplemented method 'retainAll'");
-    }
+  @Override
+  public boolean addAll(int index, Collection c) {
+    // TODO Auto-generated method stub
+    throw new UnsupportedOperationException("Unimplemented method 'addAll'");
+  }
 
-    @Override
-    public void clear() {
-      // TODO Auto-generated method stub
-      throw new UnsupportedOperationException("Unimplemented method 'clear'");
-    }
+  @Override
+  public boolean removeAll(Collection c) {
+    // TODO Auto-generated method stub
+    throw new UnsupportedOperationException("Unimplemented method 'removeAll'");
+  }
 
-    @Override
-    public Object get(int index) {
-      // TODO Auto-generated method stub
-      throw new UnsupportedOperationException("Unimplemented method 'get'");
-    }
+  @Override
+  public boolean retainAll(Collection c) {
+    // TODO Auto-generated method stub
+    throw new UnsupportedOperationException("Unimplemented method 'retainAll'");
+  }
 
-    @Override
-    public Object set(int index, Object element) {
-      // TODO Auto-generated method stub
-      throw new UnsupportedOperationException("Unimplemented method 'set'");
-    }
+  @Override
+  public void clear() {
+    // TODO Auto-generated method stub
+    throw new UnsupportedOperationException("Unimplemented method 'clear'");
+  }
 
-    @Override
-    public void add(int index, Object element) {
-      // TODO Auto-generated method stub
-      throw new UnsupportedOperationException("Unimplemented method 'add'");
-    }
+  @Override
+  public T get(int index) {
+    // TODO Auto-generated method stub
+    throw new UnsupportedOperationException("Unimplemented method 'get'");
+  }
 
-    @Override
-    public Object remove(int index) {
-      // TODO Auto-generated method stub
-      throw new UnsupportedOperationException("Unimplemented method 'remove'");
-    }
+  @Override
+  public Object set(int index, Object element) {
+    // TODO Auto-generated method stub
+    throw new UnsupportedOperationException("Unimplemented method 'set'");
+  }
 
-    @Override
-    public int indexOf(Object o) {
-      // TODO Auto-generated method stub
-      throw new UnsupportedOperationException("Unimplemented method 'indexOf'");
-    }
+  @Override
+  public void add(int index, Object element) {
+    // TODO Auto-generated method stub
+    throw new UnsupportedOperationException("Unimplemented method 'add'");
+  }
 
-    @Override
-    public int lastIndexOf(Object o) {
-      // TODO Auto-generated method stub
-      throw new UnsupportedOperationException("Unimplemented method 'lastIndexOf'");
-    }
+  @Override
+  public T remove(int index) {
+    // TODO Auto-generated method stub
+    throw new UnsupportedOperationException("Unimplemented method 'remove'");
+  }
 
-    @Override
-    public ListIterator listIterator() {
-      // TODO Auto-generated method stub
-      throw new UnsupportedOperationException("Unimplemented method 'listIterator'");
-    }
+  @Override
+  public int indexOf(Object o) {
+    // TODO Auto-generated method stub
+    throw new UnsupportedOperationException("Unimplemented method 'indexOf'");
+  }
 
-    @Override
-    public ListIterator listIterator(int index) {
-      // TODO Auto-generated method stub
-      throw new UnsupportedOperationException("Unimplemented method 'listIterator'");
-    }
+  @Override
+  public int lastIndexOf(Object o) {
+    // TODO Auto-generated method stub
+    throw new UnsupportedOperationException("Unimplemented method 'lastIndexOf'");
+  }
 
-    @Override
-    public List subList(int fromIndex, int toIndex) {
-      // TODO Auto-generated method stub
-      throw new UnsupportedOperationException("Unimplemented method 'subList'");
-    }
+  @Override
+  public ListIterator listIterator() {
+    // TODO Auto-generated method stub
+    throw new UnsupportedOperationException("Unimplemented method 'listIterator'");
+  }
+
+  @Override
+  public ListIterator listIterator(int index) {
+    // TODO Auto-generated method stub
+    throw new UnsupportedOperationException("Unimplemented method 'listIterator'");
+  }
+
+  @Override
+  public List subList(int fromIndex, int toIndex) {
+    // TODO Auto-generated method stub
+    throw new UnsupportedOperationException("Unimplemented method 'subList'");
+  }
 }

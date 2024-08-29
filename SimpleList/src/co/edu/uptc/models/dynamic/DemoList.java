@@ -5,7 +5,9 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
 
-public class DemoList implements List {
+@SuppressWarnings({ "rawtypes", "unchecked" })
+
+public class DemoList<T> implements List<T> {
 
     @Override
     public int size() {
@@ -43,14 +45,14 @@ public class DemoList implements List {
         throw new UnsupportedOperationException("Unimplemented method 'toArray'");
     }
 
-    public void setData(List list){
-     for (int i = 0; i < list.size(); i++) {
-          System.out.println(list.get(i));
-     }
+    public void setData(List list) {
+        for (int i = 0; i < list.size(); i++) {
+            System.out.println(list.get(i));
+        }
     }
 
     @Override
-    public boolean add(Object e) {
+    public boolean add(T e) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'add'");
     }
@@ -98,7 +100,7 @@ public class DemoList implements List {
     }
 
     @Override
-    public Object get(int index) {
+    public T get(int index) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'get'");
     }
@@ -110,13 +112,13 @@ public class DemoList implements List {
     }
 
     @Override
-    public void add(int index, Object element) {
+    public void add(int index, T element) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'add'");
     }
 
     @Override
-    public Object remove(int index) {
+    public T remove(int index) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'remove'");
     }
@@ -150,5 +152,5 @@ public class DemoList implements List {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'subList'");
     }
-    
+
 }
