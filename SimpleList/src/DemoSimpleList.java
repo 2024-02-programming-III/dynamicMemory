@@ -11,12 +11,22 @@ public class DemoSimpleList {
     loadDataArrayList();
     sumDataArrayList();
   };
+  public void testArrayList(int[] l){
+    loadDataArrayList(l);
+    sumDataArrayList();
+  }
 
   public  void loadDataArrayList() {
     
    list = new SimpleListV2<Integer>();
     for (int i = 0; i < 100000; i++) {
       list.add(i);
+    }
+  }
+  public void loadDataArrayList(int[] l){
+    list = new SimpleListV2<Integer>();
+    for (int i = 0; i < l.length; i++) {
+      list.add(l[i]);
     }
   }
 
