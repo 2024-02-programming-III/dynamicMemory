@@ -14,7 +14,6 @@ public class App {
         DemoSimpleList ds = new DemoSimpleList();
         ds.testArrayList(nums);
     }
-
     public void generateNums(){
         for (int i = 0; i < 100000; i++) {
             nums[i] = (int) (Math.random()*10000);

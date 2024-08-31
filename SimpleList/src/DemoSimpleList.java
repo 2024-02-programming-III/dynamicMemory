@@ -1,7 +1,4 @@
-import java.util.ArrayList;
 import java.util.List;
-
-import co.edu.uptc.models.dynamic.SimpleList;
 import co.edu.uptc.models.dynamic.SimpleListV2;
 
 public class DemoSimpleList {
