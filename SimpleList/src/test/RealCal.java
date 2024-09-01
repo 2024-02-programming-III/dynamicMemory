@@ -8,7 +8,7 @@ public class RealCal {
     public void run(List<Integer> list, String title) {
         Calculator cal = new Calculator(list);
         System.out.println("");
-        System.out.println("----------" + title + "-----");
+        System.out.println("----------" + title + "----------");
         int result = 0;
 
         long startTime = System.nanoTime();
