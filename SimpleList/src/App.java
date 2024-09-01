@@ -1,16 +1,16 @@
 import java.util.List;
 
-import co.edu.uptc.models.aplications.LoadRandomNumbers;
 import test.DemoArrayList;
 import test.DemoSimpleList;
+import test.LoadNumbersTest;
 import test.RealCal;
 
 public class App {
 
   public static void main(String[] args) throws Exception {
 
-    LoadRandomNumbers lrn = new LoadRandomNumbers();
-    List<Integer> randomNumbers = lrn.generateRandomNumbers(300_000, 0, 10_000);
+    LoadNumbersTest lnt = new LoadNumbersTest();
+    List<Integer> randomNumbers = lnt.loadNumbers();
 
     DemoArrayList da = new DemoArrayList();
     da.testArrayList(randomNumbers);
