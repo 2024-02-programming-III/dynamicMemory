@@ -11,9 +11,9 @@ public class Calculator {
     }
 
     public void sumData() {
-        for (int i = 0; i < list.size(); i++) {
-            int aux = list.get(i);
-            result += aux;
+        result = 0;
+        for (int number : list) {
+            result += number;
         }
     }
 
