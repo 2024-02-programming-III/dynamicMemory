@@ -7,7 +7,7 @@ import java.util.ArrayList;
 public class App {
 
  
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args)  {
         TestList test = new TestList();
         test.testArrayList(new ArrayList<>(), new SimpleList<>());
         RealCal<Integer> realCal = new RealCal<>();
