@@ -2,18 +2,20 @@ package co.edu.uptc.models.aplications;
 
 import java.util.List;
 
-public class Calculator {
-    private List<Integer> list = null;
+public class Calculator<T> {
+    private List<T> list;
     private int result = 0;
+    private DataConverter<T> converter;
 
-    public Calculator(List<Integer> list) {
+    public Calculator(List<T> list, DataConverter<T> converter) {
         this.list = list;
+        this.converter = converter;
     }
 
     public void sumData() {
-        result = 0;
-        for (int number : list) {
-            result += number;
+        for (T item : list) {
+            int aux = converter.convert(item);
+            result = result + aux;
         }
     }
 
