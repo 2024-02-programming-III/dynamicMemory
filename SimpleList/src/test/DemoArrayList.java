@@ -4,22 +4,23 @@ import java.util.List;
 
 public class DemoArrayList {
 
+  private List<Integer> list;
 
-    private List<Integer> list;
- public  void testArrayList() {
-    loadDataArrayList();
+  public  void testArrayList(int[] data) {
+    loadDataArrayList(data);
 
   };
 
-  public  void loadDataArrayList() {
+  public  void loadDataArrayList(int[] data) {
     
-   list = new ArrayList<Integer>();
+    list = new ArrayList<Integer>();
     for (int i = 0; i < 300000; i++) {
-      list.add(i);
+      list.add(data[i]);
     }
   }
- public List<Integer> getList(){
+
+  public List<Integer> getList(){
     return list;
- }
+  }
     
 }

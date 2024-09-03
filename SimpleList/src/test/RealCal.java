@@ -6,7 +6,6 @@ import co.edu.uptc.models.aplications.Calculator;
 
 public class RealCal<T> {
     
-   
     public void run(List<T> list, String title) {
         Calculator<T> cal = new Calculator<T>(list);
         System.out.println("");
