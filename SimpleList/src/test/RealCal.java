@@ -3,12 +3,13 @@ package test;
 import java.util.List;
 
 import co.edu.uptc.models.aplications.Calculator;
+import co.edu.uptc.models.aplications.Summable;
 
 public class RealCal<T> {
     
    
-    public void run(List<T> list, String title) {
-        Calculator<T> cal = new Calculator<T>(list);
+    public void run(List<Summable> list, String title) {
+        Calculator<Summable> cal = new Calculator<>(list);
         System.out.println("");
         System.out.println("----------"+ title+"-----");
         int result = 0;
