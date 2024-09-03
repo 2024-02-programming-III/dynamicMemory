@@ -146,15 +146,6 @@ public class SimpleList<T> implements List<T> {
         return null;
     }
 
-    public int sum(){
-        int sum = 0;
-        Node<T> aux = header;
-        while(aux != null){
-            sum += (int) aux.getInfo();
-            aux = aux.getNext();
-        }
-        return sum;
-    }
     private class SimpleListIterator implements Iterator<T> {
         private Node<T> current = header;
 
