@@ -1,29 +1,29 @@
 package test;
+
 import java.util.List;
 
-import co.edu.uptc.models.aplications.Calculator;
 import co.edu.uptc.utils.dynamic.SimpleListV2;
 
 public class DemoSimpleList {
 
-    private List<Integer> list;
- public  void testArrayList() {
-    loadDataArrayList();
-    
-  };
+  private List<Integer> list;
 
-  public  void loadDataArrayList() {
-    
-   list = new SimpleListV2<Integer>();
+  public void testArrayList(List<Integer> numbers) {
+    this.list = numbers;
+    loadDataArrayList(list);
+
+  }
+
+  public void loadDataArrayList(List<Integer> numbers) {
+
+    numbers = new SimpleListV2<Integer>();
     for (int i = 0; i < 300000; i++) {
-      list.add(i);
+      numbers.add(i);
     }
   }
 
-
-  public List<Integer> getList(){
+  public List<Integer> getList() {
     return list;
   }
 
-    
 }

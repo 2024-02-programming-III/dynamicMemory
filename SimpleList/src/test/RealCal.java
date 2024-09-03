@@ -9,6 +9,7 @@ public class RealCal<T> {
    
     public void run(List<T> list, String title) {
         Calculator<T> cal = new Calculator<T>(list);
+        
         System.out.println("");
         System.out.println("----------"+ title+"-----");
         int result = 0;

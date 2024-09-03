@@ -1,25 +1,29 @@
 package test;
-import java.util.ArrayList;
+
 import java.util.List;
+
+import co.edu.uptc.utils.dynamic.SimpleListV2;
 
 public class DemoArrayList {
 
+  private List<Integer> list;
 
-    private List<Integer> list;
- public  void testArrayList() {
-    loadDataArrayList();
+  public void testArrayList(List<Integer> numbers) {
+    this.list = numbers;
+    loadDataArrayList(list);
 
-  };
+  }
 
-  public  void loadDataArrayList() {
-    
-   list = new ArrayList<Integer>();
+  public void loadDataArrayList(List<Integer> numbers) {
+
+    numbers = new SimpleListV2<Integer>();
     for (int i = 0; i < 300000; i++) {
-      list.add(i);
+      numbers.add(i);
     }
   }
- public List<Integer> getList(){
+
+  public List<Integer> getList() {
     return list;
- }
-    
+  }
+
 }
