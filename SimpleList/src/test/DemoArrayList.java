@@ -2,24 +2,19 @@ package test;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DemoArrayList {
+import co.edu.uptc.models.aplications.Summable;
+import co.edu.uptc.models.aplications.SummableInt;
+
+public class DemoArrayList <T extends Summable>{
 
 
-    private List<Integer> list;
- public  void testArrayList() {
-    loadDataArrayList();
+    private List<Summable> list =new ArrayList<Summable>();
 
-  };
-
-  public  void loadDataArrayList() {
-    
-   list = new ArrayList<Integer>();
-    for (int i = 0; i < 300000; i++) {
-      list.add(i);
-    }
+  public  void addDataArrayList(int number) {
+    list.add(new SummableInt(number));
   }
- public List<Integer> getList(){
-    return list;
- }
+    public List<Summable> getList(){
+        return list;
+    }
     
 }
