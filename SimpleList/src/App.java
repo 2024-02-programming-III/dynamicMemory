@@ -1,24 +1,35 @@
-import java.util.List;
-
-import test.DemoArrayList;
-import test.DemoSimpleList;
-import test.LoadNumbersTest;
-import test.RealCal;
+import co.edu.uptc.models.aplications.Person;
+import co.edu.uptc.models.aplications.PersonComparator;
+import co.edu.uptc.models.aplications.SimpleListSorter;
+import co.edu.uptc.utils.dynamic.SimpleListV2;
+import test.LoadPersonsTest;
 
 public class App {
 
   public static void main(String[] args) throws Exception {
 
-    LoadNumbersTest lnt = new LoadNumbersTest();
-    List<Integer> randomNumbers = lnt.loadNumbers();
+    SimpleListV2<Person> persons = new SimpleListV2<Person>();
+    persons = new LoadPersonsTest().LoadPersons();
 
-    DemoArrayList da = new DemoArrayList();
-    da.testArrayList(randomNumbers);
-    RealCal ra = new RealCal();
-    ra.run(da.getList(), "ArrayList");
+    SimpleListSorter<Person> sorter = new SimpleListSorter<>();
 
-    DemoSimpleList ds = new DemoSimpleList();
-    ds.testArrayList(randomNumbers);
-    ra.run(ds.getList(), "SimpleList");
+    PersonComparator as = new PersonComparator();
+
+    sorter.sort(persons, as.compareName);
+    System.out.println("Lista ordenada por Nombre:");
+    persons.showList();
+
+    System.out.println();
+
+    sorter.sort(persons, as.compareLastName);
+    System.out.println("Lista ordenada por apellido:");
+    persons.showList();
+
+    System.out.println();
+
+    sorter.sort(persons, as.compareAge);
+    System.out.println("Lista ordenada por edad:");
+    persons.showList();
+
   }
 }

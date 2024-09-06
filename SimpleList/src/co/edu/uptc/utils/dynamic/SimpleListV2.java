@@ -5,11 +5,12 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
 import java.util.NoSuchElementException;
+import java.util.Comparator;
 
 @SuppressWarnings("rawtypes")
 public class SimpleListV2<T> implements List<T> {
-  Node<T> header;
-  Node<T> last;
+  public Node<T> header;
+  public Node<T> last;
   public int size = 0;
   private Node<T> lastget = null;
 
@@ -17,30 +18,6 @@ public class SimpleListV2<T> implements List<T> {
     header = null;
     last = null;
   }
-
-  // TODO: falta addionar mas de un elemento y que lo adiciona a la lista
-  // public void addv1(T value){
-  // Node<T> node = new Node<T>();
-  // node.setInfo(value);
-  // node.setNext(null);
-  // header = node;
-  // }
-
-  // @Override
-  // // TODO: falta refactorizar
-  // public boolean add(T value){
-  // Node newNode = new Node();
-  // newNode.setInfo(value);
-  // newNode.setNext(null);
-  // if (header== null) {
-  // header = newNode;
-  // last = header;
-  // } else {
-  // last.setNext(newNode);
-  // last = newNode;
-  // }
-  // return true;
-  // }
 
   @Override
   public boolean add(T e) {
@@ -86,16 +63,41 @@ public class SimpleListV2<T> implements List<T> {
     return lastget.getInfo();
   }
 
-  // @Override
-  // public T get(int index) {
-  // Node<T> aux = header;
-  // int conta=0;
-  // while (aux.getNext()!=null && conta <=index){
-  // aux = aux.getNext();
-  // conta = conta +1;
-  // }
-  // return aux.getInfo();
-  // }
+  public T findMax(Comparator<? super T> comparator) {
+    if (header == null) {
+      return null;
+    }
+
+    Node<T> current = header;
+    T maxElement = current.getInfo();
+
+    while (current != null) {
+      if (comparator.compare(current.getInfo(), maxElement) > 0) {
+        maxElement = current.getInfo();
+      }
+      current = current.getNext();
+    }
+
+    return maxElement;
+  }
+
+  public T findMinor(Comparator<? super T> comparator) {
+    if (header == null) {
+      return null;
+    }
+
+    Node<T> current = header;
+    T maxElement = current.getInfo();
+
+    while (current != null) {
+      if (comparator.compare(current.getInfo(), maxElement) < 0) {
+        maxElement = current.getInfo();
+      }
+      current = current.getNext();
+    }
+
+    return maxElement;
+  }
 
   @Override
   public boolean isEmpty() {
